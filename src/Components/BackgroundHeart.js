@@ -1,7 +1,7 @@
 import React  from 'react'
 import './BackgroundHeart.css'
 
-let hearts = [{url: require('../image/1.png').default},{url:require('../image/2.png').default}];
+let hearts = [{url: require('../image/1.png').default},{url:require('../image/2.png').default},{url:require('../image/3.png').default}];
 
 
 class BackgroundHeart extends React.Component {
@@ -23,10 +23,13 @@ class BackgroundHeart extends React.Component {
   }
 
   tick() {
-    var random = Math.floor(Math.random()*10)%2
-    var left = Math.floor(Math.random()*100)
+    var random = Math.floor(Math.random()*10)%3
+    var left = Math.floor(Math.random()*97)
+    var width = Math.floor(Math.random()*10) + 35; 
+    if (random === 2) width-=15;
     var mystyle = {
       left: left + '%',
+      width: width + 'px',
     }
     var myObject = {
       // index: this.state.list? (this.state.list.length) : 0,
@@ -34,7 +37,7 @@ class BackgroundHeart extends React.Component {
       style: mystyle
     }
 
-    if (this.state.list.length < 120) {
+    if (this.state.list.length < 100) {
       this.setState({
         list: this.state.list.concat(myObject)
       })

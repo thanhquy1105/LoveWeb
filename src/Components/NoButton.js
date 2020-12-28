@@ -1,8 +1,8 @@
 import React  from 'react'
 import './NoButton.css'
 
-var x = 60;
-var y = 70;
+var x = 55;
+var y = 40;
 
 class NoButton extends React.Component {
   constructor(props){
@@ -13,8 +13,8 @@ class NoButton extends React.Component {
   }
   
   toggleHover(){
-    x = Math.floor(Math.random()*100)
-    y = Math.floor(Math.random()*100)
+    x = Math.floor(Math.random()*97)
+    y = Math.floor(Math.random()*97)
     this.setState({hover: !this.state.hover})
   }
   render(){

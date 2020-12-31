@@ -1,0 +1,13 @@
+.HeartBeat {
+  animation: mymove 1.7s ease infinite;
+}
+
+@keyframes mymove {
+  0%,
+  100% {
+    font-size: 53px;
+  }
+  50% {
+    font-size: 65px;
+  }
+}

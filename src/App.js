@@ -1,6 +1,5 @@
 import "./App.css";
 import BackgroundHeart from "./Components/BackgroundHeart";
-import Clock from "./Components/Clock";
 import React from "react";
 import Question from "./Components/Question";
 import Love from "./Components/Love";
@@ -14,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
+      page: 0,
     };
   }
 
@@ -52,11 +51,18 @@ class App extends React.Component {
             <div
               style={{ width: "100%", height: "100%", position: "absolute" }}
             >
-              {/* <ParticlesBg type="custom" config={config} bg={false} /> */}
+              <ParticlesBg type="custom" config={config} bg={false} />
             </div>
-            <Row style={{ textAlign: "-webkit-center" }}>
+            <Row style={{ height: "100%" }}>
               <Col xs={24} sm={24} md={7} lg={8} xl={8}></Col>
-              <Col xs={24} sm={24} md={10} lg={8} xl={8}>
+              <Col
+                xs={24}
+                sm={24}
+                md={10}
+                lg={8}
+                xl={8}
+                style={{ alignSelf: "center", textAlign: "-webkit-center" }}
+              >
                 <Love></Love>
               </Col>
               <Col xs={24} sm={24} md={7} lg={8} xl={8}></Col>

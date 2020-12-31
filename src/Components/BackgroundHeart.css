@@ -1,12 +1,30 @@
 .Heart {
-  animation: mymove 18s linear infinite;
-  margin: 0 0 0 0;
+  -webkit-animation: mymove1 18s linear infinite;
+  animation: mymove1 18s linear infinite;
+  -moz-animation: mymove1 18s linear infinite;
   position: absolute;
-  z-index: 0;
   top: -50px;
 }
 
-@keyframes mymove {
+@keyframes mymove1 {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 800px;
+  }
+}
+
+@-webkit-keyframes mymove1 {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 800px;
+  }
+}
+
+@-moz-keyframes mymove1 {
   from {
     top: -50px;
   }

@@ -5,7 +5,9 @@ class ShowDays extends React.Component {
   render() {
     return (
       <>
-        <div style={{ width: "250px", height: "250px", position: "relative" }}>
+        <div
+          style={{ width: "250px", position: "relative", marginBottom: "25px" }}
+        >
           <svg viewBox="0 0 125 125">
             <mask id="myMask">
               <rect x="0" y="0" width="125" height="125" fill="white" />

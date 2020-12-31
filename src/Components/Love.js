@@ -72,19 +72,21 @@ class Love extends React.Component {
   render() {
     return (
       <>
-        <ShowDays days={this.state.total_days}></ShowDays>
-        <ShowFull
-          info={{
-            years: this.state.years,
-            months: this.state.months,
-            weeks: this.state.weeks,
-            days: this.state.days,
-            hours: this.state.hours,
-            minutes: this.state.minutes,
-            seconds: this.state.seconds,
-          }}
-        ></ShowFull>
-        <Avatar></Avatar>
+        <div>
+          <ShowDays days={this.state.total_days}></ShowDays>
+          <ShowFull
+            info={{
+              years: this.state.years,
+              months: this.state.months,
+              weeks: this.state.weeks,
+              days: this.state.days,
+              hours: this.state.hours,
+              minutes: this.state.minutes,
+              seconds: this.state.seconds,
+            }}
+          ></ShowFull>
+          <Avatar></Avatar>
+        </div>
       </>
     );
   }

@@ -15,16 +15,15 @@ class YesButton extends React.Component {
     audio.volume = 0.3;
     audio.loop = true;
     
-    console.log(123)
     this.props.parentCallback();
   }
   render(){
     return (
-        <div>
+        <>
             <button className="Yes" onClick = {()=>this.OnClickYes()} style = {style}>
                 Yes
             </button>
-      </div>
+      </>
     );
   }
 }

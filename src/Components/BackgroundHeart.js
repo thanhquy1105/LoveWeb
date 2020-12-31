@@ -37,7 +37,7 @@ class BackgroundHeart extends React.Component {
       style: mystyle
     }
 
-    if (this.state.list.length < 100) {
+    if (this.state.list.length < 80) {
       this.setState({
         list: this.state.list.concat(myObject)
       })

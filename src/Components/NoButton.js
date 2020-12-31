@@ -24,11 +24,11 @@ class NoButton extends React.Component {
         top: y + '%'
     }
     return (
-        <div>
+        <>
             <button className="No" onMouseEnter={()=>this.toggleHover()} onMouseLeave={()=>this.toggleHover()} style={style}>
                 No
             </button>
-      </div>
+      </>
     );
   }
 }

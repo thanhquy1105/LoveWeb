@@ -15,7 +15,7 @@ class Avatar extends React.Component {
   render() {
     return (
       <>
-        <Row style={{ margin: "40px 0 0 0" }}>
+        <Row style={{ margin: "40px 0 0 0", color: "white" }}>
           <Col span={8}>
             <div style={{ float: "right", padding: "10px 0px" }}>
               <img
@@ -30,9 +30,7 @@ class Avatar extends React.Component {
                 src={Avatar1}
                 alt="avatar"
               ></img>
-              <div style={{ fontSize: "16px", marginBottom: "5px" }}>
-                Thành Quý
-              </div>
+              <div style={{ fontSize: "20px" }}>Thành Quý</div>
               <div style={{ display: "flex" }}>
                 <img
                   src={Male}
@@ -44,7 +42,10 @@ class Avatar extends React.Component {
             </div>
           </Col>
           <Col span={8}>
-            <div class="HeartBeat" style={{ width: "100%", height: "100%" }}>
+            <div
+              className="HeartBeat"
+              style={{ width: "100%", height: "100%" }}
+            >
               <HeartFilled
                 style={{
                   color: "#f3c568",
@@ -66,9 +67,7 @@ class Avatar extends React.Component {
                 src={Avatar2}
                 alt="avatar"
               ></img>
-              <div style={{ fontSize: "16px", marginBottom: "5px" }}>
-                Tố Ngọc
-              </div>
+              <div style={{ fontSize: "20px" }}>Tố Ngọc</div>
               <div style={{ display: "flex" }}>
                 <img
                   src={Female}

@@ -61,7 +61,13 @@ class App extends React.Component {
                 md={10}
                 lg={8}
                 xl={8}
-                style={{ alignSelf: "center", textAlign: "-webkit-center" }}
+                style={{
+                  backgroundImage: `url(${Background})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "100%",
+                  zIndex: -1,
+                }}
               >
                 <Love></Love>
               </Col>

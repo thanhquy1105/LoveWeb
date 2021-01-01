@@ -19,3 +19,9 @@ code {
   src: local("Pinyon"),
     url(./fonts/Pinyon_Script/PinyonScript-Regular.ttf) format("truetype");
 }
+@font-face {
+  font-family: "Dancing";
+  src: local("Dancing"),
+    url(./fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf)
+      format("truetype");
+}

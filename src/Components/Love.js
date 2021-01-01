@@ -71,8 +71,16 @@ class Love extends React.Component {
   }
   render() {
     return (
-      <>
-        <div>
+      <div
+        style={{
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontFamily: "Dancing",
+        }}
+      >
+        <div style={{ textAlign: "-webkit-center" }}>
           <ShowDays days={this.state.total_days}></ShowDays>
           <ShowFull
             info={{
@@ -87,7 +95,7 @@ class Love extends React.Component {
           ></ShowFull>
           <Avatar></Avatar>
         </div>
-      </>
+      </div>
     );
   }
 }

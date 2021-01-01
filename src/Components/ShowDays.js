@@ -6,7 +6,14 @@ class ShowDays extends React.Component {
     return (
       <>
         <div
-          style={{ width: "250px", position: "relative", marginBottom: "25px" }}
+          style={{
+            width: "250px",
+            position: "relative",
+            marginBottom: "25px",
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "white",
+          }}
         >
           <svg viewBox="0 0 125 125">
             <mask id="myMask">
@@ -62,9 +69,34 @@ class ShowDays extends React.Component {
               />
             </mask>
           </Wave>
-          {/* <div style={{position:'absolute',top:'65px',width:'100%',fontFamily:'Pinyon'}}>Aa aaaa</div>
-                    <div style={{position:'absolute',top:'105px',width:'100%',fontFamily:'Pinyon'}}>{this.props.days}</div>
-                    <div style={{position:'absolute',top:'145px',width:'100%',fontFamily:'Pinyon'}}>Days</div> */}
+          <div
+            style={{
+              position: "absolute",
+              top: "65px",
+              width: "100%",
+            }}
+          >
+            In love
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "105px",
+              width: "100%",
+            }}
+          >
+            {this.props.days}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "145px",
+              width: "100%",
+              fontFamily: "Pinyon",
+            }}
+          >
+            Days
+          </div>
         </div>
       </>
     );

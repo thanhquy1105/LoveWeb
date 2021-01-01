@@ -80,7 +80,7 @@ class Love extends React.Component {
           fontFamily: "Dancing",
         }}
       >
-        <div style={{ textAlign: "-webkit-center" }}>
+        <div className="Center">
           <ShowDays days={this.state.total_days}></ShowDays>
           <ShowFull
             info={{

@@ -28,8 +28,6 @@ class Question extends React.Component {
       top: y + "%",
       position: "absolute",
     };
-    console.log(x);
-    console.log(y);
     this.setState({ state: 1, hover: !this.state.hover });
   }
   render() {

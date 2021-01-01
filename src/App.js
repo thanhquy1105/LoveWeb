@@ -38,7 +38,7 @@ class App extends React.Component {
       random: 10,
     };
     return (
-      <div className="App">
+      <div className="App" style={{ height: "100%" }}>
         {this.state.page === 0 && (
           <>
             <BackgroundHeart />

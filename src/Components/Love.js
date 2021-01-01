@@ -59,7 +59,7 @@ class Love extends React.Component {
     var diff = Date.getFormattedDateDiff(meet, now1);
     this.setState({
       now: now1,
-      total_days: now.diff(meet, "days") + 1,
+      total_days: now1.diff(meet, "days") + 1,
       years: diff[0],
       months: diff[1],
       weeks: diff[2],

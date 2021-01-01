@@ -1,36 +1,41 @@
-import React  from 'react'
-import './NoButton.css'
-
-var x = 55;
-var y = 40;
+import React from "react";
+import "./NoButton.css";
+import BrokenHeart from "../image/brokenHeart.png";
 
 class NoButton extends React.Component {
-  constructor(props){
-    super(props);
-    this.state= {
-      hover: false
-    };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     hover: false,
+  //   };
+  // }
+
+  toggleHover() {
+    this.props.changeSate();
   }
-  
-  toggleHover(){
-    x = Math.floor(Math.random()*97)
-    y = Math.floor(Math.random()*97)
-    this.setState({hover: !this.state.hover})
-  }
-  render(){
-     
-    var style = {
-        left: x + '%',
-        top: y + '%'
-    }
+  render() {
     return (
-        <>
-            <button className="No" onMouseEnter={()=>this.toggleHover()} onMouseLeave={()=>this.toggleHover()} style={style}>
-                No
-            </button>
+      <>
+        <button
+          className="No"
+          onMouseEnter={() => this.toggleHover()}
+          onMouseLeave={() => this.toggleHover()}
+          onMouseMove={() => this.toggleHover()}
+        >
+          <img
+            src={BrokenHeart}
+            alt="brokenHeart"
+            style={{
+              width: "14px",
+              marginBottom: "4px",
+              marginRight: "8px",
+            }}
+          />
+          No
+        </button>
       </>
     );
   }
 }
-  
-  export default NoButton;
+
+export default NoButton;

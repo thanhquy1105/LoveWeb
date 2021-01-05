@@ -3,6 +3,7 @@ import ShowDays from "./ShowDays";
 import Moment from "moment";
 import ShowFull from "./ShowFull";
 import Avatar from "./Avatar";
+import Background from "../image/background.jpg";
 
 const meet = Moment("02/06/2019", "MM/DD/YYYY");
 var now = Moment();
@@ -78,6 +79,9 @@ class Love extends React.Component {
           justifyContent: "center",
           alignItems: "center",
           fontFamily: "Dancing",
+          backgroundImage: `url(${Background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="Center">

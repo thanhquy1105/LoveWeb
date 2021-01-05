@@ -181,7 +181,7 @@ class ShowDays extends React.Component {
               <SwatchesPicker
                 color={this.state.loveColor}
                 onChange={this.handleChange}
-                width={280}
+                width={285}
               />
             </div>
           </div>

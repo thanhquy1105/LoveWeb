@@ -5,7 +5,6 @@ import Question from "./Components/Question";
 import Love from "./Components/Love";
 import ParticlesBg from "particles-bg";
 import icon from "./Components/icon";
-import Background from "./image/background.jpg";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 
@@ -68,9 +67,6 @@ class App extends React.Component {
                 lg={8}
                 xl={8}
                 style={{
-                  backgroundImage: `url(${Background})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                   height: "100%",
                   zIndex: 0,
                 }}

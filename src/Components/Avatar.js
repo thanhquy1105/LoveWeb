@@ -134,7 +134,7 @@ class Avatar extends React.Component {
               <SwatchesPicker
                 color={this.state.color}
                 onChange={this.handleChange}
-                width={280}
+                width={285}
                 height={150}
               />
             </div>

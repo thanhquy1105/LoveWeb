@@ -40,16 +40,22 @@ class App extends React.Component {
     return (
       <div className="App" style={{ height: "100%" }}>
         {this.state.page === 0 && (
-          <>
+          <div style={{ overflow: "hidden", height: "100%" }}>
             <BackgroundHeart />
             <Question parentCallback={() => this.OnChangeState()}></Question>
-          </>
+          </div>
         )}
 
         {this.state.page !== 0 && (
           <>
             <div
-              style={{ width: "100%", height: "100%", position: "absolute" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
             >
               <ParticlesBg type="custom" config={config} bg={false} />
             </div>
@@ -66,7 +72,7 @@ class App extends React.Component {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   height: "100%",
-                  zIndex: -1,
+                  zIndex: 0,
                 }}
               >
                 <Love></Love>

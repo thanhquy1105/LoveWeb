@@ -59,21 +59,25 @@ class App extends React.Component {
               <ParticlesBg type="custom" config={config} bg={false} />
             </div>
             <Row style={{ height: "100%" }}>
-              <Col xs={24} sm={24} md={7} lg={8} xl={8}></Col>
+              <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
               <Col
+                className="Card"
                 xs={24}
                 sm={24}
-                md={10}
+                md={24}
                 lg={8}
                 xl={8}
                 style={{
                   height: "100%",
                   zIndex: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <Love></Love>
               </Col>
-              <Col xs={24} sm={24} md={7} lg={8} xl={8}></Col>
+              <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
             </Row>
           </>
         )}

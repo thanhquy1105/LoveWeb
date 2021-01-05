@@ -74,7 +74,8 @@ class Love extends React.Component {
     return (
       <div
         style={{
-          height: "100%",
+          height: "95%",
+          width: "95%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -82,6 +83,8 @@ class Love extends React.Component {
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          borderRadius: "25px",
+          boxShadow: "3px 6px 10px 10px #585858",
         }}
       >
         <div className="Center">

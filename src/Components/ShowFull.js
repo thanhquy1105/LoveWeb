@@ -94,7 +94,11 @@ class ShowFull extends React.Component {
                 onClick={this.handleClose}
               />
               <SwatchesPicker
-                color={this.state.color}
+                color={
+                  this.state.showHeartPicker
+                    ? this.state.heartColor
+                    : this.state.textColor
+                }
                 onChange={this.handleChange}
                 width={285}
                 height={150}
@@ -199,7 +203,13 @@ class ShowFull extends React.Component {
                     )
                   )}
                 </div>
-                <div style={{ paddingTop: "3px", color: this.state.textColor }}>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    paddingTop: "3px",
+                    color: this.state.textColor,
+                  }}
+                >
                   06/02/2019
                 </div>
               </div>

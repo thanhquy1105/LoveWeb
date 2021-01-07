@@ -7,12 +7,12 @@ import ParticlesBg from "particles-bg";
 import icon from "./Components/icon";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
-
+import Memories from "./Components/Memories";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 0,
+      page: 1,
     };
   }
 
@@ -56,10 +56,25 @@ class App extends React.Component {
                 zIndex: 1,
               }}
             >
-              <ParticlesBg type="custom" config={config} bg={false} />
+              {/* <ParticlesBg type="custom" config={config} bg={false} /> */}
             </div>
             <Row style={{ height: "100%" }}>
-              <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
+              <Col
+                xs={24}
+                sm={24}
+                md={24}
+                lg={8}
+                xl={8}
+                style={{
+                  height: "100%",
+                  zIndex: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Memories></Memories>
+              </Col>
               <Col
                 className="Card"
                 xs={24}
@@ -75,7 +90,7 @@ class App extends React.Component {
                   alignItems: "center",
                 }}
               >
-                <Love></Love>
+                {/* <Love></Love> */}
               </Col>
               <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
             </Row>

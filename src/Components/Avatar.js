@@ -132,7 +132,19 @@ class Avatar extends React.Component {
                 onClick={this.handleClose}
               />
               <SwatchesPicker
-                color={this.state.color}
+                color={
+                  this.state.showLeftBorderPicker
+                    ? this.state.leftBorderColor
+                    : this.state.showLeftTextPicker
+                    ? this.state.leftTextColor
+                    : this.state.showRightBorderPicker
+                    ? this.state.rightBorderColor
+                    : this.state.showRightTextPicker
+                    ? this.state.rightTextColor
+                    : this.state.showCenterPickerthis.state.color
+                    ? this.state.heartColor
+                    : null
+                }
                 onChange={this.handleChange}
                 width={285}
                 height={150}

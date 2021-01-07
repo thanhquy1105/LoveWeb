@@ -56,7 +56,7 @@ class App extends React.Component {
                 zIndex: 1,
               }}
             >
-              {/* <ParticlesBg type="custom" config={config} bg={false} /> */}
+              <ParticlesBg type="custom" config={config} bg={false} />
             </div>
             <Row style={{ height: "100%" }}>
               <Col
@@ -90,7 +90,7 @@ class App extends React.Component {
                   alignItems: "center",
                 }}
               >
-                {/* <Love></Love> */}
+                <Love></Love>
               </Col>
               <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
             </Row>

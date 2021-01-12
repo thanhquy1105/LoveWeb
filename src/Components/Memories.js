@@ -1,7 +1,7 @@
-import i1 from "../image/memory1.jpg";
-import i2 from "../image/memory2.jpg";
-import i3 from "../image/memory3.jpg";
-import i4 from "../image/memory4.jpg";
+import i1 from "../image/memories/memory1.jpg";
+import i2 from "../image/memories/memory2.jpg";
+import i3 from "../image/memories/memory3.jpg";
+import i4 from "../image/memories/memory4.jpg";
 import React, { useState } from "react";
 import "./Memories.css";
 import ReactCardFlip from "react-card-flip";

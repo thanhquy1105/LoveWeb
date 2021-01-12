@@ -8,6 +8,8 @@ import icon from "./Components/icon";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 import Memories from "./Components/Memories";
+import LetterAndQuote from "./Components/LetterAndQuote";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -71,6 +73,7 @@ class App extends React.Component {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  minHeight: "650px",
                 }}
               >
                 <Memories></Memories>
@@ -88,11 +91,28 @@ class App extends React.Component {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  minHeight: "650px",
                 }}
               >
                 <Love></Love>
               </Col>
-              <Col xs={24} sm={24} md={24} lg={8} xl={8}></Col>
+              <Col
+                xs={24}
+                sm={24}
+                md={24}
+                lg={8}
+                xl={8}
+                style={{
+                  height: "100%",
+                  zIndex: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  minHeight: "650px",
+                }}
+              >
+                <LetterAndQuote />
+              </Col>
             </Row>
           </>
         )}

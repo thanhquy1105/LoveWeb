@@ -4,7 +4,7 @@
   "description": "I love you",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node server.js",
     "dev": "SET NODE_DEV=DEVELOPMENT& nodemon backend/server",
     "prod": "SET NODE_DEV=PRODUCTION& nodemon backend/server"
   },

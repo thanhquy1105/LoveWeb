@@ -4,6 +4,7 @@ import Moment from "moment";
 import ShowFull from "./ShowFull";
 import Avatar from "./Avatar";
 import Background from "../image/background.jpg";
+import axios from "axios";
 
 const meet = Moment("02/06/2019", "MM/DD/YYYY");
 var now = Moment();
@@ -88,7 +89,11 @@ class Love extends React.Component {
         }}
       >
         <div className="Center">
-          <ShowDays days={this.state.total_days}></ShowDays>
+          <ShowDays
+            info={{
+              days: this.state.total_days,
+            }}
+          ></ShowDays>
           <ShowFull
             info={{
               years: this.state.years,

@@ -9,6 +9,7 @@ import Male from "../image/male.png";
 import Female from "../image/female.png";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
+import axios from "axios";
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -19,12 +20,38 @@ class Avatar extends React.Component {
       showLeftTextPicker: false,
       showRightTextPicker: false,
       showCenterPicker: false,
+      id: "",
       heartColor: "#03a9f4",
       leftBorderColor: "#03a9f4",
       rightBorderColor: "#03a9f4",
       leftTextColor: "#ffffff",
       rightTextColor: "#ffffff",
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:4000/api/getAvatar`)
+      .then((res) => {
+        const info = res.data.info[0];
+        this.setState({
+          id: info._id,
+          heartColor: info.Avatar_HeartColor,
+          leftBorderColor: info.Avatar_LeftBorderColor,
+          rightBorderColor: info.Avatar_RightBorderColor,
+          leftTextColor: info.Avatar_LeftTextColor,
+          rightTextColor: info.Avatar_RightTextColor,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+
+  async putData(change) {
+    const res = await axios.put(
+      `http://localhost:4000/api/updateAvatar/${this.state.id}`,
+      change
+    );
+    return await res;
   }
 
   onClickItems = (key) => {
@@ -75,6 +102,7 @@ class Avatar extends React.Component {
       showCenterPicker: !this.state.heart,
     });
   };
+
   handleClose = () => {
     this.setState({
       showLeftBorderPicker: false,
@@ -86,15 +114,46 @@ class Avatar extends React.Component {
   };
 
   handleChange = (color) => {
-    if (this.state.showLeftBorderPicker)
-      this.setState({ leftBorderColor: color.hex });
-    if (this.state.showLeftTextPicker)
-      this.setState({ leftTextColor: color.hex });
-    if (this.state.showRightBorderPicker)
-      this.setState({ rightBorderColor: color.hex });
-    if (this.state.showRightTextPicker)
-      this.setState({ rightTextColor: color.hex });
-    if (this.state.showCenterPicker) this.setState({ heartColor: color.hex });
+    if (this.state.showLeftBorderPicker) {
+      let change = {
+        Avatar_LeftBorderColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ leftBorderColor: color.hex });
+      });
+    }
+    if (this.state.showLeftTextPicker) {
+      let change = {
+        Avatar_LeftTextColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ leftTextColor: color.hex });
+      });
+    }
+    if (this.state.showRightBorderPicker) {
+      let change = {
+        Avatar_RightBorderColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ rightBorderColor: color.hex });
+      });
+    }
+    if (this.state.showRightTextPicker) {
+      let change = {
+        Avatar_RightTextColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ rightTextColor: color.hex });
+      });
+    }
+    if (this.state.showCenterPicker) {
+      let change = {
+        Avatar_HeartColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ heartColor: color.hex });
+      });
+    }
   };
 
   render() {

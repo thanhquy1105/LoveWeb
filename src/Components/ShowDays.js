@@ -3,6 +3,7 @@ import Wave from "react-wavify";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
 import "antd/dist/antd.css";
+import axios from "axios";
 
 class ShowDays extends React.Component {
   constructor(props) {
@@ -10,11 +11,24 @@ class ShowDays extends React.Component {
     this.state = {
       showLovePicker: false,
       showTextPicker: false,
+      id: "",
       loveColor: "#03a9f4",
-      textColor: "#fff",
+      textColor: "#ffffff",
     };
   }
-
+  componentDidMount() {
+    axios
+      .get(`http://localhost:4000/api/getShowDays`)
+      .then((res) => {
+        const info = res.data.info[0];
+        this.setState({
+          id: info._id,
+          loveColor: info.ShowDays_LoveColor,
+          textColor: info.ShowDays_TextColor,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
   onClickItems(key) {
     if (key.key === "1") {
       this.setState({
@@ -32,17 +46,40 @@ class ShowDays extends React.Component {
     this.setState({ showLovePicker: false, showTextPicker: false });
   };
 
+  async putData(change) {
+    const res = await axios.put(
+      `http://localhost:4000/api/updateShowDays/${this.state.id}`,
+      change
+    );
+    return await res;
+  }
+
   handleChange = (color) => {
-    if (this.state.showLovePicker) this.setState({ loveColor: color.hex });
-    if (this.state.showTextPicker) this.setState({ textColor: color.hex });
+    if (this.state.showLovePicker) {
+      let change = {
+        ShowDays_LoveColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ loveColor: color.hex });
+      });
+    }
+
+    if (this.state.showTextPicker) {
+      let change = {
+        ShowDays_TextColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ textColor: color.hex });
+      });
+    }
   };
 
   render() {
     var percent;
-    if (this.props.days > 1000) {
-      percent = this.props.days / 10000;
+    if (this.props.info.days > 1000) {
+      percent = this.props.info.days / 10000;
     } else {
-      percent = this.props.days / 1000;
+      percent = this.props.info.days / 1000;
     }
     percent = Math.floor(250 - percent * 250);
     return (
@@ -139,7 +176,7 @@ class ShowDays extends React.Component {
                 width: "100%",
               }}
             >
-              {this.props.days}
+              {this.props.info.days}
             </div>
             <div
               style={{

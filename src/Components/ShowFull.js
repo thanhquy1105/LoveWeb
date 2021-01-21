@@ -3,6 +3,7 @@ import "antd/dist/antd.css";
 import { Row, Col } from "antd";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
+import axios from "axios";
 
 class ShowFull extends React.Component {
   constructor(props) {
@@ -10,12 +11,38 @@ class ShowFull extends React.Component {
     this.state = {
       showHeartPicker: false,
       showTextPicker: false,
+      id: "",
       heartColor: "#03a9f4",
       textColor: "#ffffff",
       opacity: 1,
       state: 3,
     };
   }
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:4000/api/getShowFull`)
+      .then((res) => {
+        const info = res.data.info[0];
+        this.setState({
+          id: info._id,
+          heartColor: info.ShowFull_HeartColor,
+          textColor: info.ShowFull_TextColor,
+          opacity: info.ShowFull_Opacity,
+          state: info.ShowFull_State,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+
+  async putData(change) {
+    const res = await axios.put(
+      `http://localhost:4000/api/updateShowFull/${this.state.id}`,
+      change
+    );
+    return await res;
+  }
+
   onClickItems = (key) => {
     if (key.key === "1") {
       this.setState({
@@ -30,23 +57,43 @@ class ShowFull extends React.Component {
       });
     }
     if (key.key === "3") {
-      this.setState({
-        state: 1,
+      let change = {
+        ShowFull_State: 1,
+      };
+      this.putData(change).then(() => {
+        this.setState({
+          state: 1,
+        });
       });
     }
     if (key.key === "4") {
-      this.setState({
-        state: 2,
+      let change = {
+        ShowFull_State: 2,
+      };
+      this.putData(change).then(() => {
+        this.setState({
+          state: 2,
+        });
       });
     }
     if (key.key === "5") {
-      this.setState({
-        state: 3,
+      let change = {
+        ShowFull_State: 3,
+      };
+      this.putData(change).then(() => {
+        this.setState({
+          state: 3,
+        });
       });
     }
     if (key.key === "6") {
-      this.setState({
-        opacity: this.state.opacity === 1 ? 0 : 1,
+      let change = {
+        ShowFull_Opacity: this.state.opacity === 1 ? 0 : 1,
+      };
+      this.putData(change).then(() => {
+        this.setState({
+          opacity: this.state.opacity === 1 ? 0 : 1,
+        });
       });
     }
   };
@@ -59,8 +106,23 @@ class ShowFull extends React.Component {
   };
 
   handleChange = (color) => {
-    if (this.state.showHeartPicker) this.setState({ heartColor: color.hex });
-    if (this.state.showTextPicker) this.setState({ textColor: color.hex });
+    if (this.state.showHeartPicker) {
+      let change = {
+        ShowFull_HeartColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ heartColor: color.hex });
+      });
+    }
+
+    if (this.state.showTextPicker) {
+      let change = {
+        ShowFull_TextColor: color.hex,
+      };
+      this.putData(change).then(() => {
+        this.setState({ textColor: color.hex });
+      });
+    }
   };
 
   render() {
@@ -148,6 +210,7 @@ class ShowFull extends React.Component {
                   {["Year", "Month", "Week", "Day", "Hour", "Min", "Sec"].map(
                     (k, i) => (
                       <div
+                        key={i}
                         className="anticon anticon-heart"
                         style={{
                           fontSize: "35px",
@@ -243,8 +306,9 @@ class ShowFull extends React.Component {
                 }}
               >
                 <div style={{ width: "100%" }}>
-                  {[1, 2, 3, 4, 5, 6, 7].map(() => (
+                  {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                     <div
+                      key={i}
                       className="anticon anticon-heart"
                       style={{
                         fontSize: "35px",

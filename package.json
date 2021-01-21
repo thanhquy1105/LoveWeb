@@ -1,29 +1,51 @@
 {
   "name": "loveapp",
-  "version": "1.0.0",
-  "description": "I love you",
-  "main": "server.js",
-  "scripts": {
-    "start": "node backend/server.js",
-    "dev": "SET NODE_DEV=DEVELOPMENT& nodemon backend/server",
-    "prod": "SET NODE_DEV=PRODUCTION& nodemon backend/server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thanhquy1105/LoveWeb.git"
-  },
-  "author": "ThanhQuy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thanhquy1105/LoveWeb/issues"
-  },
-  "homepage": "https://github.com/thanhquy1105/LoveWeb#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.11.13"
+    "@ant-design/icons": "^4.3.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.9.4",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.3",
+    "es-check": "^5.1.4",
+    "moment": "^2.29.1",
+    "particles-bg": "^2.5.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-card-flip": "^1.0.11",
+    "react-color": "^2.19.3",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "react-wavify": "^1.4.0",
+    "reactstrap": "^8.8.1",
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

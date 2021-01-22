@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const { ImportShowDays } = require("./controllers/ShowDaysController");
 const { ImportShowFull } = require("./controllers/ShowFullController");
 const { ImportAvatar } = require("./controllers/AvatarController");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 //Setting up config file
 dotenv.config({ path: "config/config.env" });

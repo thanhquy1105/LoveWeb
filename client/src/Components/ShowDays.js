@@ -18,7 +18,7 @@ class ShowDays extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/api/getShowDays`)
+      .get(`/api/getShowDays`)
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -47,10 +47,7 @@ class ShowDays extends React.Component {
   };
 
   async putData(change) {
-    const res = await axios.put(
-      `http://localhost:4000/api/updateShowDays/${this.state.id}`,
-      change
-    );
+    const res = await axios.put(`/api/updateShowDays/${this.state.id}`, change);
     return await res;
   }
 

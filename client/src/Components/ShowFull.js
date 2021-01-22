@@ -21,7 +21,7 @@ class ShowFull extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/api/getShowFull`)
+      .get(`/api/getShowFull`)
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -36,10 +36,7 @@ class ShowFull extends React.Component {
   }
 
   async putData(change) {
-    const res = await axios.put(
-      `http://localhost:4000/api/updateShowFull/${this.state.id}`,
-      change
-    );
+    const res = await axios.put(`/api/updateShowFull/${this.state.id}`, change);
     return await res;
   }
 

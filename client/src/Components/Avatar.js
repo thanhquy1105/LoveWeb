@@ -31,7 +31,7 @@ class Avatar extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/api/getAvatar`)
+      .get(`/api/getAvatar`)
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -47,10 +47,7 @@ class Avatar extends React.Component {
   }
 
   async putData(change) {
-    const res = await axios.put(
-      `http://localhost:4000/api/updateAvatar/${this.state.id}`,
-      change
-    );
+    const res = await axios.put(`/api/updateAvatar/${this.state.id}`, change);
     return await res;
   }
 

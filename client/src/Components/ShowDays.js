@@ -3,7 +3,7 @@ import Wave from "react-wavify";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
 import "antd/dist/antd.css";
-import axios from "axios";
+import API from "../utils/API";
 
 class ShowDays extends React.Component {
   constructor(props) {
@@ -17,8 +17,7 @@ class ShowDays extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get(`/api/getShowDays`)
+    API.getShowDays()
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -46,17 +45,12 @@ class ShowDays extends React.Component {
     this.setState({ showLovePicker: false, showTextPicker: false });
   };
 
-  async putData(change) {
-    const res = await axios.put(`/api/updateShowDays/${this.state.id}`, change);
-    return await res;
-  }
-
   handleChange = (color) => {
     if (this.state.showLovePicker) {
       let change = {
         ShowDays_LoveColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putShowDays(this.state.id, change).then(() => {
         this.setState({ loveColor: color.hex });
       });
     }
@@ -65,7 +59,7 @@ class ShowDays extends React.Component {
       let change = {
         ShowDays_TextColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putShowDays(this.state.id, change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }

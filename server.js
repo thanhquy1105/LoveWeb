@@ -1,11 +1,14 @@
 const express = require("express");
-const app = express();
+const app = require("./app");
 const connectDatabase = require("./config/database");
 const { ImportShowDays } = require("./controllers/ShowDaysController");
 const { ImportShowFull } = require("./controllers/ShowFullController");
 const { ImportAvatar } = require("./controllers/AvatarController");
 
-const PORT = process.env.PORT || 8000;
+const cors = require("cors");
+app.use(cors());
+
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +24,5 @@ ImportShowFull();
 ImportAvatar();
 
 app.listen(PORT, () => {
-  console.log(
-    `Server st arted on PORT: ${PORT} in ${process.env.NODE_ENV} mode.`
-  );
+  console.log(`Server st arted on PORT: ${PORT}.`);
 });

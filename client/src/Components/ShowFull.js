@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { Row, Col } from "antd";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
-import axios from "axios";
+import API from "../utils/API";
 
 class ShowFull extends React.Component {
   constructor(props) {
@@ -20,8 +20,7 @@ class ShowFull extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`/api/getShowFull`)
+    API.getShowFull()
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -33,11 +32,6 @@ class ShowFull extends React.Component {
         });
       })
       .catch((error) => console.log(error));
-  }
-
-  async putData(change) {
-    const res = await axios.put(`/api/updateShowFull/${this.state.id}`, change);
-    return await res;
   }
 
   onClickItems = (key) => {
@@ -57,7 +51,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 1,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({
           state: 1,
         });
@@ -67,7 +61,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 2,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({
           state: 2,
         });
@@ -77,7 +71,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 3,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({
           state: 3,
         });
@@ -87,7 +81,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_Opacity: this.state.opacity === 1 ? 0 : 1,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({
           opacity: this.state.opacity === 1 ? 0 : 1,
         });
@@ -107,7 +101,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_HeartColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }
@@ -116,7 +110,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_TextColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putShowFull(this.state.id, change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }

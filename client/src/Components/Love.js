@@ -4,7 +4,6 @@ import Moment from "moment";
 import ShowFull from "./ShowFull";
 import Avatar from "./Avatar";
 import Background from "../image/background.jpg";
-import axios from "axios";
 
 const meet = Moment("02/06/2019", "MM/DD/YYYY");
 var now = Moment();

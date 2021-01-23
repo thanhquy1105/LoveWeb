@@ -9,7 +9,7 @@ import Male from "../image/male.png";
 import Female from "../image/female.png";
 import { SwatchesPicker } from "react-color";
 import { Menu, Dropdown } from "antd";
-import axios from "axios";
+import API from "../utils/API";
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -30,8 +30,7 @@ class Avatar extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`/api/getAvatar`)
+    API.getAvatar()
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
@@ -44,11 +43,6 @@ class Avatar extends React.Component {
         });
       })
       .catch((error) => console.log(error));
-  }
-
-  async putData(change) {
-    const res = await axios.put(`/api/updateAvatar/${this.state.id}`, change);
-    return await res;
   }
 
   onClickItems = (key) => {
@@ -115,7 +109,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftBorderColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putAvatar(this.state.id, change).then(() => {
         this.setState({ leftBorderColor: color.hex });
       });
     }
@@ -123,7 +117,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftTextColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putAvatar(this.state.id, change).then(() => {
         this.setState({ leftTextColor: color.hex });
       });
     }
@@ -131,7 +125,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightBorderColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putAvatar(this.state.id, change).then(() => {
         this.setState({ rightBorderColor: color.hex });
       });
     }
@@ -139,7 +133,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightTextColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putAvatar(this.state.id, change).then(() => {
         this.setState({ rightTextColor: color.hex });
       });
     }
@@ -147,7 +141,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_HeartColor: color.hex,
       };
-      this.putData(change).then(() => {
+      API.putAvatar(this.state.id, change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }

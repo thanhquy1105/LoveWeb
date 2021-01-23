@@ -4,6 +4,7 @@ exports.ImportShowFull = async () => {
   const show_Full = await ShowFull.find();
   if (show_Full == "") {
     const data = {
+      const: "ILoveYou",
       ShowFull_HeartColor: "#03a9f4",
       ShowFull_TextColor: "#ffffff",
       ShowFull_Opacity: 1,
@@ -22,9 +23,8 @@ exports.getShowFull = async (req, res, next) => {
 };
 
 exports.updateShowFull = async (req, res, next) => {
-  info = await ShowFull.findOneAndUpdate({ _id: req.params.id }, req.body);
+  info = await ShowFull.findOneAndUpdate({ const: "ILoveYou" }, req.body);
   res.status(200).json({
     success: true,
-    info,
   });
 };

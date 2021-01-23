@@ -16,9 +16,9 @@ const { getAvatar, updateAvatar } = require("../controllers/AvatarController");
 router.route("/getShowDays").get(getShowDays);
 router.route("/getShowFull").get(getShowFull);
 router.route("/getAvatar").get(getAvatar);
-router.route("/updateShowDays/:id").put(updateShowDays);
-router.route("/updateShowFull/:id").put(updateShowFull);
-router.route("/updateAvatar/:id").put(updateAvatar);
+router.route("/updateShowDays").post(updateShowDays);
+router.route("/updateShowFull").post(updateShowFull);
+router.route("/updateAvatar").post(updateAvatar);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

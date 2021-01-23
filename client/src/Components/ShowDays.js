@@ -11,7 +11,6 @@ class ShowDays extends React.Component {
     this.state = {
       showLovePicker: false,
       showTextPicker: false,
-      id: "",
       loveColor: "#03a9f4",
       textColor: "#ffffff",
     };
@@ -21,7 +20,6 @@ class ShowDays extends React.Component {
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
-          id: info._id,
           loveColor: info.ShowDays_LoveColor,
           textColor: info.ShowDays_TextColor,
         });
@@ -50,7 +48,7 @@ class ShowDays extends React.Component {
       let change = {
         ShowDays_LoveColor: color.hex,
       };
-      API.putShowDays(this.state.id, change).then(() => {
+      API.putShowDays(change).then(() => {
         this.setState({ loveColor: color.hex });
       });
     }
@@ -59,7 +57,7 @@ class ShowDays extends React.Component {
       let change = {
         ShowDays_TextColor: color.hex,
       };
-      API.putShowDays(this.state.id, change).then(() => {
+      API.putShowDays(change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }

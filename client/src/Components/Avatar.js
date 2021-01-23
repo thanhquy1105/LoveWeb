@@ -20,7 +20,6 @@ class Avatar extends React.Component {
       showLeftTextPicker: false,
       showRightTextPicker: false,
       showCenterPicker: false,
-      id: "",
       heartColor: "#03a9f4",
       leftBorderColor: "#03a9f4",
       rightBorderColor: "#03a9f4",
@@ -34,7 +33,6 @@ class Avatar extends React.Component {
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
-          id: info._id,
           heartColor: info.Avatar_HeartColor,
           leftBorderColor: info.Avatar_LeftBorderColor,
           rightBorderColor: info.Avatar_RightBorderColor,
@@ -109,7 +107,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftBorderColor: color.hex,
       };
-      API.putAvatar(this.state.id, change).then(() => {
+      API.putAvatar(change).then(() => {
         this.setState({ leftBorderColor: color.hex });
       });
     }
@@ -117,7 +115,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftTextColor: color.hex,
       };
-      API.putAvatar(this.state.id, change).then(() => {
+      API.putAvatar(change).then(() => {
         this.setState({ leftTextColor: color.hex });
       });
     }
@@ -125,7 +123,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightBorderColor: color.hex,
       };
-      API.putAvatar(this.state.id, change).then(() => {
+      API.putAvatar(change).then(() => {
         this.setState({ rightBorderColor: color.hex });
       });
     }
@@ -133,7 +131,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightTextColor: color.hex,
       };
-      API.putAvatar(this.state.id, change).then(() => {
+      API.putAvatar(change).then(() => {
         this.setState({ rightTextColor: color.hex });
       });
     }
@@ -141,7 +139,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_HeartColor: color.hex,
       };
-      API.putAvatar(this.state.id, change).then(() => {
+      API.putAvatar(change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }

@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 
-//Import all routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const info = require("./routes/info");
 

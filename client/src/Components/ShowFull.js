@@ -11,7 +11,6 @@ class ShowFull extends React.Component {
     this.state = {
       showHeartPicker: false,
       showTextPicker: false,
-      id: "",
       heartColor: "#03a9f4",
       textColor: "#ffffff",
       opacity: 1,
@@ -24,7 +23,6 @@ class ShowFull extends React.Component {
       .then((res) => {
         const info = res.data.info[0];
         this.setState({
-          id: info._id,
           heartColor: info.ShowFull_HeartColor,
           textColor: info.ShowFull_TextColor,
           opacity: info.ShowFull_Opacity,
@@ -51,7 +49,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 1,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({
           state: 1,
         });
@@ -61,7 +59,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 2,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({
           state: 2,
         });
@@ -71,7 +69,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 3,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({
           state: 3,
         });
@@ -81,7 +79,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_Opacity: this.state.opacity === 1 ? 0 : 1,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({
           opacity: this.state.opacity === 1 ? 0 : 1,
         });
@@ -101,7 +99,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_HeartColor: color.hex,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }
@@ -110,7 +108,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_TextColor: color.hex,
       };
-      API.putShowFull(this.state.id, change).then(() => {
+      API.putShowFull(change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }

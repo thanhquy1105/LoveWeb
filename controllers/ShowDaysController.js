@@ -4,6 +4,7 @@ exports.ImportShowDays = async () => {
   const show_Days = await ShowDays.find();
   if (show_Days == "") {
     const data = {
+      const: "ILoveYou",
       ShowDays_LoveColor: "#03a9f4",
       ShowDays_TextColor: "#fff",
     };
@@ -20,9 +21,8 @@ exports.getShowDays = async (req, res, next) => {
 };
 
 exports.updateShowDays = async (req, res, next) => {
-  info = await ShowDays.findOneAndUpdate({ _id: req.params.id }, req.body);
+  info = await ShowDays.findOneAndUpdate({ const: "ILoveYou" }, req.body);
   res.status(200).json({
     success: true,
-    info,
   });
 };

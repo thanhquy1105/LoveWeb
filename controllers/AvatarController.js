@@ -4,6 +4,7 @@ exports.ImportAvatar = async () => {
   const avatar = await Avatar.find();
   if (avatar == "") {
     const data = {
+      const: "ILoveYou",
       Avatar_HeartColor: "#03a9f4",
       Avatar_LeftBorderColor: "#03a9f4",
       Avatar_RightBorderColor: "#03a9f4",
@@ -22,9 +23,8 @@ exports.getAvatar = async (req, res, next) => {
 };
 
 exports.updateAvatar = async (req, res, next) => {
-  info = await Avatar.findOneAndUpdate({ _id: req.params.id }, req.body);
+  info = await Avatar.findOneAndUpdate({ const: "ILoveYou" }, req.body);
   res.status(200).json({
     success: true,
-    info,
   });
 };

@@ -4,26 +4,22 @@ import axios from "axios";
 // const URL = "https://quyyeungoc.herokuapp.com"
 
 export default {
-  // Gets all books
   async getShowDays() {
     return await axios.get("/api/getShowDays");
   },
-  // Gets the book with the given id
   async getShowFull() {
     return await axios.get("/api/getShowFull");
   },
-  // Deletes the book with the given id
   async getAvatar() {
     return await axios.get("/api/getAvatar");
   },
-  // Saves a book to the database
-  async putShowDays(id, change) {
-    return await axios.put(`/api/updateShowDays/${id}`, change);
+  async putShowDays(change) {
+    return await axios.post(`/api/updateShowDays`, change);
   },
-  async putShowFull(id, change) {
-    return await axios.put(`/api/updateShowFull/${id}`, change);
+  async putShowFull(change) {
+    return await axios.post(`/api/updateShowFull`, change);
   },
-  async putAvatar(id, change) {
-    return await axios.put(`/api/updateAvatar/${id}`, change);
+  async putAvatar(change) {
+    return await axios.post(`/api/updateAvatar`, change);
   },
 };

@@ -11,7 +11,7 @@ const routes = require("./routes");
 dotenv.config({ path: "config/config.env" });
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //Connecting to database
 connectDatabase();

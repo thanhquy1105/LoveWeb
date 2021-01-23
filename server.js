@@ -1,10 +1,11 @@
-const app = require("./app");
+const express = require("express");
+const app = express();
 const connectDatabase = require("./config/database");
 const { ImportShowDays } = require("./controllers/ShowDaysController");
 const { ImportShowFull } = require("./controllers/ShowFullController");
 const { ImportAvatar } = require("./controllers/AvatarController");
+
 const PORT = process.env.PORT || 8000;
-const routes = require("./routes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,8 +15,6 @@ connectDatabase();
 
 // ADD THIS LINE
 app.use(express.static("client/build"));
-
-app.use(routes);
 
 ImportShowDays();
 ImportShowFull();

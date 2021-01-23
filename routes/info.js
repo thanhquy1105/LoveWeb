@@ -20,4 +20,9 @@ router.route("/updateShowDays/:id").put(updateShowDays);
 router.route("/updateShowFull/:id").put(updateShowFull);
 router.route("/updateAvatar/:id").put(updateAvatar);
 
+// If no API routes are hit, send the React app
+router.use(function (req, res) {
+  res.sendFile(path.join("./client/build/index.html"));
+});
+
 module.exports = router;

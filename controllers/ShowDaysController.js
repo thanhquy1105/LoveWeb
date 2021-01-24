@@ -7,6 +7,8 @@ exports.ImportShowDays = async () => {
       const: "ILoveYou",
       ShowDays_LoveColor: "#03a9f4",
       ShowDays_TextColor: "#fff",
+      ShowDays_BackgroundUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475262/ILoveYou/background_dqbw9x.jpg",
     };
     await ShowDays.create(data);
   }

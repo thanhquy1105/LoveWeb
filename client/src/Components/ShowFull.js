@@ -49,7 +49,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 1,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({
           state: 1,
         });
@@ -59,7 +59,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 2,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({
           state: 2,
         });
@@ -69,7 +69,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_State: 3,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({
           state: 3,
         });
@@ -79,7 +79,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_Opacity: this.state.opacity === 1 ? 0 : 1,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({
           opacity: this.state.opacity === 1 ? 0 : 1,
         });
@@ -99,7 +99,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_HeartColor: color.hex,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }
@@ -108,7 +108,7 @@ class ShowFull extends React.Component {
       let change = {
         ShowFull_TextColor: color.hex,
       };
-      API.putShowFull(change).then(() => {
+      API.postShowFull(change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }

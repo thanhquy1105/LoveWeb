@@ -74,7 +74,7 @@ class App extends React.Component {
                 zIndex: 1,
               }}
             >
-              <ParticlesBg type="custom" config={config} bg={false} />
+              {/* <ParticlesBg type="custom" config={config} bg={false} /> */}
             </div>
             <Row style={{ height: "100%" }}>
               <Col

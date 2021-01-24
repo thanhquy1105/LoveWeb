@@ -13,13 +13,19 @@ export default {
   async getAvatar() {
     return await axios.get("/api/getAvatar");
   },
-  async putShowDays(change) {
+  async postShowDays(change) {
     return await axios.post(`/api/updateShowDays`, change);
   },
-  async putShowFull(change) {
+  async postShowFull(change) {
     return await axios.post(`/api/updateShowFull`, change);
   },
-  async putAvatar(change) {
+  async postAvatar(change) {
     return await axios.post(`/api/updateAvatar`, change);
+  },
+  async postImage(formData) {
+    return await axios.post(
+      "https://api.cloudinary.com/v1_1/dnjb58me8/image/upload",
+      formData
+    );
   },
 };

@@ -3,7 +3,6 @@ import ShowDays from "./ShowDays";
 import Moment from "moment";
 import ShowFull from "./ShowFull";
 import Avatar from "./Avatar";
-import Background from "../image/background.jpg";
 
 const meet = Moment("02/06/2019", "MM/DD/YYYY");
 var now = Moment();
@@ -44,7 +43,13 @@ class Love extends React.Component {
       hours: init[4],
       minutes: init[5],
       seconds: init[6],
+      backgroundUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475262/ILoveYou/background_dqbw9x.jpg",
     };
+  }
+
+  setBackground(url) {
+    this.setState({ backgroundUrl: url });
   }
 
   componentDidMount() {
@@ -80,7 +85,7 @@ class Love extends React.Component {
           justifyContent: "center",
           alignItems: "center",
           fontFamily: "Dancing",
-          backgroundImage: `url(${Background})`,
+          backgroundImage: `url(${this.state.backgroundUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           borderRadius: "25px",
@@ -92,6 +97,7 @@ class Love extends React.Component {
             info={{
               days: this.state.total_days,
             }}
+            callbackBackground={(url) => this.setBackground(url)}
           ></ShowDays>
           <ShowFull
             info={{

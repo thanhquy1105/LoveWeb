@@ -10,6 +10,10 @@ exports.ImportAvatar = async () => {
       Avatar_RightBorderColor: "#03a9f4",
       Avatar_LeftTextColor: "#ffffff",
       Avatar_RightTextColor: "#ffffff",
+      Avatar_LeftImageUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475288/ILoveYou/avatar1_utp8sv.jpg",
+      Avatar_RightImageUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475296/ILoveYou/avatar2_helosa.jpg",
     };
     await Avatar.create(data);
   }

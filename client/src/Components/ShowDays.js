@@ -14,11 +14,13 @@ class ShowDays extends React.Component {
       loveColor: "#03a9f4",
       textColor: "#ffffff",
     };
+    this.myRef = React.createRef();
   }
   componentDidMount() {
     API.getShowDays()
       .then((res) => {
         const info = res.data.info[0];
+        this.props.callbackBackground(info.ShowDays_BackgroundUrl);
         this.setState({
           loveColor: info.ShowDays_LoveColor,
           textColor: info.ShowDays_TextColor,
@@ -37,8 +39,28 @@ class ShowDays extends React.Component {
         showTextPicker: !this.state.showTextPicker,
       });
     }
+    if (key.key === "3") {
+      this.myRef.current.click();
+    }
   }
 
+  async setFile(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ILoveYou");
+    try {
+      API.postImage(formData).then((res) => {
+        const imageUrl = res.data.secure_url;
+        API.postShowDays({
+          ShowDays_BackgroundUrl: imageUrl,
+        }).then(() => {
+          this.props.callbackBackground(imageUrl);
+        });
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
   handleClose = () => {
     this.setState({ showLovePicker: false, showTextPicker: false });
   };
@@ -48,7 +70,7 @@ class ShowDays extends React.Component {
       let change = {
         ShowDays_LoveColor: color.hex,
       };
-      API.putShowDays(change).then(() => {
+      API.postShowDays(change).then(() => {
         this.setState({ loveColor: color.hex });
       });
     }
@@ -57,7 +79,7 @@ class ShowDays extends React.Component {
       let change = {
         ShowDays_TextColor: color.hex,
       };
-      API.putShowDays(change).then(() => {
+      API.postShowDays(change).then(() => {
         this.setState({ textColor: color.hex });
       });
     }
@@ -78,7 +100,19 @@ class ShowDays extends React.Component {
             <Menu onClick={(key) => this.onClickItems(key)}>
               <Menu.Item key="1">Change love color</Menu.Item>
               <Menu.Item key="2">Change text color</Menu.Item>
-              <Menu.Item key="3">Change background</Menu.Item>
+              <Menu.Item key="3">
+                Change background
+                <input
+                  type="file"
+                  style={{
+                    display: "none",
+                  }}
+                  onChange={(e) => {
+                    this.setFile(e.target.files[0]);
+                  }}
+                  ref={this.myRef}
+                ></input>
+              </Menu.Item>
             </Menu>
           }
           trigger={["click"]}

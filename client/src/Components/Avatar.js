@@ -1,7 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import Avatar1 from "../image/avatar1.jpg";
-import Avatar2 from "../image/avatar2.jpg";
 import "antd/dist/antd.css";
 import { HeartFilled } from "@ant-design/icons";
 import "./Avatar.css";
@@ -25,7 +23,14 @@ class Avatar extends React.Component {
       rightBorderColor: "#03a9f4",
       leftTextColor: "#ffffff",
       rightTextColor: "#ffffff",
+      changeAvatar: 0,
+      leftImageUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475288/ILoveYou/avatar1_utp8sv.jpg",
+      rightImageUrl:
+        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475296/ILoveYou/avatar2_helosa.jpg",
     };
+    this.myRef = React.createRef();
+    this.myRef1 = React.createRef();
   }
 
   componentDidMount() {
@@ -38,9 +43,38 @@ class Avatar extends React.Component {
           rightBorderColor: info.Avatar_RightBorderColor,
           leftTextColor: info.Avatar_LeftTextColor,
           rightTextColor: info.Avatar_RightTextColor,
+          leftImageUrl: info.Avatar_LeftImageUrl,
+          rightImageUrl: info.Avatar_RightImageUrl,
         });
       })
       .catch((error) => console.log(error));
+  }
+
+  async setFile(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ILoveYou");
+    try {
+      API.postImage(formData).then((res) => {
+        const imageUrl = res.data.secure_url;
+        if (this.state.changeAvatar == 1) {
+          API.postAvatar({
+            Avatar_LeftImageUrl: imageUrl,
+          }).then(() => {
+            this.setState({ leftImageUrl: imageUrl });
+          });
+        }
+        if (this.state.changeAvatar == 2) {
+          API.postAvatar({
+            Avatar_RightImageUrl: imageUrl,
+          }).then(() => {
+            this.setState({ rightImageUrl: imageUrl });
+          });
+        }
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   onClickItems = (key) => {
@@ -62,6 +96,12 @@ class Avatar extends React.Component {
         showCenterPicker: false,
       });
     }
+    if (key.key === "3") {
+      this.setState({
+        changeAvatar: 1,
+      });
+      this.myRef.current.click();
+    }
     if (key.key === "4") {
       this.setState({
         showLeftBorderPicker: false,
@@ -79,6 +119,12 @@ class Avatar extends React.Component {
         showRightTextPicker: !this.state.showRightTextPicker,
         showCenterPicker: false,
       });
+    }
+    if (key.key === "6") {
+      this.setState({
+        changeAvatar: 2,
+      });
+      this.myRef1.current.click();
     }
   };
 
@@ -107,7 +153,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftBorderColor: color.hex,
       };
-      API.putAvatar(change).then(() => {
+      API.postAvatar(change).then(() => {
         this.setState({ leftBorderColor: color.hex });
       });
     }
@@ -115,7 +161,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_LeftTextColor: color.hex,
       };
-      API.putAvatar(change).then(() => {
+      API.postAvatar(change).then(() => {
         this.setState({ leftTextColor: color.hex });
       });
     }
@@ -123,7 +169,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightBorderColor: color.hex,
       };
-      API.putAvatar(change).then(() => {
+      API.postAvatar(change).then(() => {
         this.setState({ rightBorderColor: color.hex });
       });
     }
@@ -131,7 +177,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_RightTextColor: color.hex,
       };
-      API.putAvatar(change).then(() => {
+      API.postAvatar(change).then(() => {
         this.setState({ rightTextColor: color.hex });
       });
     }
@@ -139,7 +185,7 @@ class Avatar extends React.Component {
       let change = {
         Avatar_HeartColor: color.hex,
       };
-      API.putAvatar(change).then(() => {
+      API.postAvatar(change).then(() => {
         this.setState({ heartColor: color.hex });
       });
     }
@@ -207,7 +253,19 @@ class Avatar extends React.Component {
                 <Menu onClick={(key) => this.onClickItems(key)}>
                   <Menu.Item key="1">Change border color</Menu.Item>
                   <Menu.Item key="2">Change text color</Menu.Item>
-                  <Menu.Item key="3">Change avatar</Menu.Item>
+                  <Menu.Item key="3">
+                    Change avatar
+                    <input
+                      type="file"
+                      style={{
+                        display: "none",
+                      }}
+                      onChange={(e) => {
+                        this.setFile(e.target.files[0]);
+                      }}
+                      ref={this.myRef}
+                    ></input>
+                  </Menu.Item>
                 </Menu>
               }
               placement="topCenter"
@@ -230,7 +288,7 @@ class Avatar extends React.Component {
                     border: `4px ${this.state.leftBorderColor} solid`,
                     marginBottom: "5px",
                   }}
-                  src={Avatar1}
+                  src={this.state.leftImageUrl}
                   alt="avatar"
                 ></img>
                 <div
@@ -270,7 +328,19 @@ class Avatar extends React.Component {
                 <Menu onClick={(key) => this.onClickItems(key)}>
                   <Menu.Item key="4">Change border color</Menu.Item>
                   <Menu.Item key="5">Change text color</Menu.Item>
-                  <Menu.Item key="6">Change avatar</Menu.Item>
+                  <Menu.Item key="6">
+                    Change avatar
+                    <input
+                      type="file"
+                      style={{
+                        display: "none",
+                      }}
+                      onChange={(e) => {
+                        this.setFile(e.target.files[0]);
+                      }}
+                      ref={this.myRef1}
+                    ></input>
+                  </Menu.Item>
                 </Menu>
               }
               placement="topCenter"
@@ -293,7 +363,7 @@ class Avatar extends React.Component {
                     border: `4px ${this.state.rightBorderColor} solid`,
                     marginBottom: "5px",
                   }}
-                  src={Avatar2}
+                  src={this.state.rightImageUrl}
                   alt="avatar"
                 ></img>
                 <div

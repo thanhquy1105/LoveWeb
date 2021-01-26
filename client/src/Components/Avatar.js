@@ -18,16 +18,14 @@ class Avatar extends React.Component {
       showLeftTextPicker: false,
       showRightTextPicker: false,
       showCenterPicker: false,
-      heartColor: "#03a9f4",
-      leftBorderColor: "#03a9f4",
-      rightBorderColor: "#03a9f4",
+      heartColor: "#ffffff",
+      leftBorderColor: "#ffffff",
+      rightBorderColor: "#ffffff",
       leftTextColor: "#ffffff",
       rightTextColor: "#ffffff",
       changeAvatar: 0,
-      leftImageUrl:
-        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475288/ILoveYou/avatar1_utp8sv.jpg",
-      rightImageUrl:
-        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475296/ILoveYou/avatar2_helosa.jpg",
+      leftImageUrl: "",
+      rightImageUrl: "",
     };
     this.myRef = React.createRef();
     this.myRef1 = React.createRef();
@@ -50,21 +48,21 @@ class Avatar extends React.Component {
       .catch((error) => console.log(error));
   }
 
-  async setFile(file) {
+  setFile(file) {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "ILoveYou");
     try {
       API.postImage(formData).then((res) => {
         const imageUrl = res.data.secure_url;
-        if (this.state.changeAvatar == 1) {
+        if (this.state.changeAvatar === 1) {
           API.postAvatar({
             Avatar_LeftImageUrl: imageUrl,
           }).then(() => {
             this.setState({ leftImageUrl: imageUrl });
           });
         }
-        if (this.state.changeAvatar == 2) {
+        if (this.state.changeAvatar === 2) {
           API.postAvatar({
             Avatar_RightImageUrl: imageUrl,
           }).then(() => {

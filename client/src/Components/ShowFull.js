@@ -11,10 +11,10 @@ class ShowFull extends React.Component {
     this.state = {
       showHeartPicker: false,
       showTextPicker: false,
-      heartColor: "#03a9f4",
+      heartColor: "#ffffff",
       textColor: "#ffffff",
-      opacity: 1,
-      state: 3,
+      opacity: 0,
+      state: 2,
     };
   }
 
@@ -336,7 +336,7 @@ class ShowFull extends React.Component {
                     style={{
                       width: "100%",
                       position: "absolute",
-                      top: "-52px",
+                      top: "-54px",
                     }}
                   >
                     <Col style={{ left: "1px" }} span={3}>

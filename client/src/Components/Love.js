@@ -43,8 +43,7 @@ class Love extends React.Component {
       hours: init[4],
       minutes: init[5],
       seconds: init[6],
-      backgroundUrl:
-        "https://res.cloudinary.com/dnjb58me8/image/upload/v1611475262/ILoveYou/background_dqbw9x.jpg",
+      backgroundUrl: "",
     };
   }
 

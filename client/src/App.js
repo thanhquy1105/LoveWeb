@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
+      page: 0,
       heightBG: "100%",
     };
   }
@@ -55,7 +55,7 @@ class App extends React.Component {
       random: 10,
     };
     return (
-      <div className="App" style={{ height: "100%" }}>
+      <div id="App" className="App" style={{ height: "100%" }}>
         {this.state.page === 0 && (
           <div style={{ overflow: "hidden", height: "100%" }}>
             <BackgroundHeart />
@@ -74,7 +74,7 @@ class App extends React.Component {
                 zIndex: 1,
               }}
             >
-              {/* <ParticlesBg type="custom" config={config} bg={false} /> */}
+              <ParticlesBg type="custom" config={config} bg={false} />
             </div>
             <Row style={{ height: "100%" }}>
               <Col
@@ -127,7 +127,7 @@ class App extends React.Component {
                   minHeight: "650px",
                 }}
               >
-                <LetterAndQuote />
+                {/* <LetterAndQuote /> */}
               </Col>
             </Row>
           </>

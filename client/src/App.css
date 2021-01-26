@@ -57,3 +57,28 @@
   text-align: -webkit-center;
   text-align: -moz-center;
 }
+.rodal-dialog {
+  width: 80% !important;
+  height: 90% !important;
+  font-family: "Dancing";
+  font-size: calc(15px + 1vmin) !important;
+}
+@media screen and (max-width: 1024px) {
+  .rodal-dialog {
+    width: 85% !important;
+    height: 90% !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .rodal-dialog {
+    width: 95% !important;
+    height: 99% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .rodal-dialog {
+    width: 98% !important;
+    height: 98% !important;
+  }
+}

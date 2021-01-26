@@ -13,6 +13,18 @@ export default {
   async getAvatar() {
     return await axios.get("/api/getAvatar");
   },
+  async getAllImage() {
+    return await axios.get("/api/getAllImage");
+  },
+  async getImage(value) {
+    return await axios.get("/api/getImage", value);
+  },
+  async insertImage(value) {
+    return await axios.post("/api/insertImage", value);
+  },
+  async updateImage(id, value) {
+    return await axios.put(`/api/updateImage/${id}`, value);
+  },
   async postShowDays(change) {
     return await axios.post(`/api/updateShowDays`, change);
   },

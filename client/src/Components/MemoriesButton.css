@@ -1,0 +1,57 @@
+.MemoBut {
+  position: absolute;
+  font-size: 35px;
+  z-index: 2;
+  font-family: Dancing;
+  top: 0px;
+  background-color: #f2f4f4;
+  width: 100%;
+  box-shadow: inset 0px -5px 0px 0px #e0e4e5;
+}
+.tool1 {
+  position: absolute !important;
+  right: 10px;
+  top: 8px;
+}
+.Edit {
+  display: inline-flex !important;
+}
+
+@media screen and (max-width: 400px),
+  (min-width: 992px) and (max-width: 1200px) {
+  .tool1 {
+    right: -80px;
+    transition: transform 0.7s;
+    top: 8px;
+    position: absolute !important;
+  }
+  .transition {
+    transform: translateX(-111px);
+    display: inline-flex !important;
+  }
+  .tool2 {
+    display: inline-flex !important;
+  }
+  .image {
+    transition: transform 0.7s;
+  }
+  .rotate {
+    transform: rotateZ(180deg);
+  }
+  .block {
+    position: absolute;
+    width: 32px;
+    height: 40px;
+    display: block;
+    top: 5px;
+    right: -1px;
+    background: #f2f4f4;
+  }
+  .text {
+    transition: transform 0.7s;
+    transition-delay: 0.15s;
+  }
+  .left {
+    transform: translateX(-60px);
+  }
+}

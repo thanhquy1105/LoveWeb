@@ -11,7 +11,7 @@ class ShowDays extends React.Component {
     this.state = {
       showLovePicker: false,
       showTextPicker: false,
-      loveColor: "#03a9f4",
+      loveColor: "#ffffff",
       textColor: "#ffffff",
     };
     this.myRef = React.createRef();
@@ -44,7 +44,7 @@ class ShowDays extends React.Component {
     }
   }
 
-  async setFile(file) {
+  setFile(file) {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "ILoveYou");

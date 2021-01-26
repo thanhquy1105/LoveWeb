@@ -6,3 +6,103 @@
 .custom-tag1 {
   height: 100%;
 }
+.show {
+  font-size: calc(11px + 1vmin);
+  color: black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.info {
+  width: 100%;
+}
+.edit {
+  font-size: calc(11px + 1vmin);
+  color: black;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.showDate {
+  color: black;
+  position: relative;
+  border: none;
+  background: none;
+  border-bottom: 1px black solid;
+  outline: none;
+  padding: 0;
+}
+.editDate {
+  color: black;
+  position: relative;
+  border: none;
+  background: none;
+  border-bottom: 1px black solid;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  text-align-last: center;
+}
+.none {
+  display: none !important;
+}
+.my {
+  position: relative;
+  padding-left: 20px;
+  padding-right: 15px;
+  width: max-content;
+  float: left;
+  font-size: calc(13px + 1vmin);
+}
+.editMy {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  width: 70%;
+  text-align: justify;
+  font-size: calc(11px + 1vmin);
+}
+.showMy {
+  position: relative;
+  border: none;
+  background: none;
+  outline: none;
+  width: 70%;
+  text-align: justify;
+  float: left;
+}
+.your {
+  position: relative;
+  float: right;
+  padding-right: 20px;
+  padding-left: 15px;
+  width: max-content;
+  font-size: calc(11px + 1vmin);
+}
+.editYour {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  width: 70%;
+  text-align: justify;
+  float: right;
+  font-size: calc(11px + 1vmin);
+}
+.showYour {
+  position: relative;
+  border: none;
+  background: none;
+  outline: none;
+  width: 70%;
+  text-align: justify;
+  float: right;
+  direction: rtl;
+}

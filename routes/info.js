@@ -13,18 +13,22 @@ const {
 
 const { getAvatar, updateAvatar } = require("../controllers/AvatarController");
 const {
-  getBackground,
-  uploadBackground,
+  getAllImage,
+  getImage,
+  insertImage,
+  updateImage,
 } = require("../controllers/ImageController");
 
 router.route("/getShowDays").get(getShowDays);
 router.route("/getShowFull").get(getShowFull);
 router.route("/getAvatar").get(getAvatar);
-// router.route("/getBackground").get(getBackground);
+router.route("/getAllImage").get(getAllImage);
+router.route("/getImage").get(getImage);
+router.route("/insertImage").post(insertImage);
 router.route("/updateShowDays").post(updateShowDays);
 router.route("/updateShowFull").post(updateShowFull);
 router.route("/updateAvatar").post(updateAvatar);
-// router.route("/uploadBackground").post(uploadBackground);
+router.route("/updateImage/:id").put(updateImage);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

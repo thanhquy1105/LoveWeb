@@ -127,7 +127,7 @@ class App extends React.Component {
                   minHeight: "650px",
                 }}
               >
-                {/* <LetterAndQuote /> */}
+                <LetterAndQuote />
               </Col>
             </Row>
           </>

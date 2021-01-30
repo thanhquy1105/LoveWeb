@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import MemoriesButton from "./MemoriesButton";
 import TextareaAutosize from "react-textarea-autosize";
-
+import ModalZoom from "./ModalZoom";
 import API from "../utils/API";
 
 const Memories = () => {
@@ -19,6 +19,7 @@ const Memories = () => {
   const [animating, setAnimating] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const [onEdit, setOnEdit] = useState(false);
+  const [onZoom, setOnZoom] = useState(false);
   const [dateInput, setDateInput] = useState("");
   const [myInput, setMyInput] = useState("");
   const [yourInput, setYourInput] = useState("");
@@ -52,7 +53,7 @@ const Memories = () => {
   };
 
   const clickZoomButton = () => {
-    console.log(1);
+    setOnZoom(true);
   };
   const clickEditButton = () => {
     setOnEdit(true);
@@ -79,10 +80,12 @@ const Memories = () => {
   };
   const clickCancelButton = () => {
     setOnEdit(false);
+    setOnZoom(false);
   };
   const clickOkAddButton = () => {
     setOnEdit(false);
   };
+
   const slides = items.map((item) => {
     return (
       <CarouselItem
@@ -106,13 +109,13 @@ const Memories = () => {
           >
             <img
               src={item.ImageUrl}
-              alt={item.altText}
+              alt="img"
               style={{ width: "100%", height: "100%" }}
             />
             <div>
               <img
                 src={item.ImageUrl}
-                alt={item.altText}
+                alt="bg"
                 style={{
                   width: "100%",
                   minHeight: "100%",
@@ -241,6 +244,9 @@ const Memories = () => {
           />
         </Carousel>
       </div>
+      {onZoom ? (
+        <ModalZoom clickCancelZoom={clickCancelButton} images={items} />
+      ) : null}
     </>
   );
 };

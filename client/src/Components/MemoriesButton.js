@@ -6,19 +6,23 @@ import Zoom from "../image/icon/zoom.png";
 import Add from "../image/icon/add.png";
 import Arrow from "../image/icon/arrow.png";
 import "./MemoriesButton.css";
-import Modal from "./Modal";
+import ModalAdd from "./ModalAdd";
 
 const MemoriesButton = (props) => {
-  const [onZoom, setOnZoom] = useState(false);
   const [status, setStatus] = useState(false);
   const [onEdit, setOnEdit] = useState(false);
   const [onAdd, setOnAdd] = useState(false);
   const [onSave, setSave] = useState(false);
+
+  const clickZoom = () => {
+    props.clickZoomButton();
+  };
+
   const clickOpenTool = () => {
     setStatus(!status);
   };
   const clickEdit = () => {
-    if (onEdit || onAdd || onZoom) return;
+    if (onEdit || onAdd) return;
     setOnEdit(true);
     props.clickEditButton();
   };
@@ -52,9 +56,7 @@ const MemoriesButton = (props) => {
           size="sm"
         >
           <Button
-            onClick={() => {
-              onEdit || onAdd ? setOnZoom(false) : setOnZoom(true);
-            }}
+            onClick={onEdit || onAdd ? null : clickZoom}
             title="zoom in"
             style={{ background: "none" }}
           >
@@ -69,7 +71,7 @@ const MemoriesButton = (props) => {
           </Button>
           <Button
             onClick={() => {
-              onEdit || onZoom ? setOnAdd(false) : setOnAdd(true);
+              onEdit ? setOnAdd(false) : setOnAdd(true);
             }}
             title="add image"
             style={{ background: "none" }}
@@ -133,7 +135,7 @@ const MemoriesButton = (props) => {
         ) : null}
       </div>
       {onAdd ? (
-        <Modal clickOKAdd={clickOKAdd} clickCancelAdd={clickCancelAdd} />
+        <ModalAdd clickOKAdd={clickOKAdd} clickCancelAdd={clickCancelAdd} />
       ) : null}
     </>
   );

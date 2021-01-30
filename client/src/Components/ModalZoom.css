@@ -1,0 +1,7 @@
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  height: 68px;
+  object-fit: cover;
+}
+.image-gallery-thumbnails {
+  padding: 1px 0px;
+}

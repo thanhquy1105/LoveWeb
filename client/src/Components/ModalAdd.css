@@ -1,0 +1,34 @@
+.RowAddTool {
+  height: 94%;
+  margin-top: 5px;
+}
+.image {
+  height: 100%;
+}
+.data {
+  height: 100%;
+}
+@media screen and (max-width: 991.5px) {
+  .image {
+    height: 30% !important;
+  }
+  .data {
+    height: 70% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .image {
+    height: 25% !important;
+  }
+  .data {
+    height: 75% !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .image {
+    height: 33% !important;
+  }
+  .data {
+    height: 67% !important;
+  }
+}

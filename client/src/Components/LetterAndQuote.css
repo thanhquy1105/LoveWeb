@@ -1,0 +1,50 @@
+.cover-tag {
+  height: 95%;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Dancing;
+  border-radius: 25px;
+  box-shadow: 3px 6px 10px 10px #585858;
+  overflow: hidden;
+  position: relative;
+}
+.cover-letter {
+  max-width: 100% !important;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 50%);
+  margin: 0 auto;
+}
+
+.text-area {
+  background: none;
+  outline: none;
+  border: none;
+  width: 90%;
+  font-size: calc(13px + 1vmin);
+}
+.page .page-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.page.page-cover {
+  box-shadow: inset 0 0 30px 0 rgb(36 10 3 / 50%),
+    -2px 0 5px 2px rgb(0 0 0 / 40%);
+  position: absolute;
+  display: block;
+  z-index: 1;
+  background-color: #e3d0b5;
+  color: #785e3a;
+  border: 1px solid #998466;
+}
+.demoPage {
+  padding: 10px;
+  background-color: #f5eee7;
+  color: #785e3a;
+  border: 1px solid #c2b5a3;
+  overflow: hidden;
+  box-shadow: inset 7px 0 30px -7px rgb(0 0 0 / 40%);
+}

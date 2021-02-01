@@ -19,6 +19,7 @@
     "react-color": "^2.19.3",
     "react-dom": "^17.0.1",
     "react-image-gallery": "^1.0.8",
+    "react-pageflip": "^1.0.0",
     "react-router-dom": "4.1.2",
     "react-scripts": "4.0.1",
     "react-textarea-autosize": "^8.3.0",

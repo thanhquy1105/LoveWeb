@@ -19,6 +19,7 @@ const {
   updateImage,
 } = require("../controllers/ImageController");
 
+const { getLetter, updateLetter } = require("../controllers/LetterController");
 router.route("/getShowDays").get(getShowDays);
 router.route("/getShowFull").get(getShowFull);
 router.route("/getAvatar").get(getAvatar);
@@ -29,6 +30,8 @@ router.route("/updateShowDays").post(updateShowDays);
 router.route("/updateShowFull").post(updateShowFull);
 router.route("/updateAvatar").post(updateAvatar);
 router.route("/updateImage/:id").put(updateImage);
+router.route("/getLetter").get(getLetter);
+router.route("/updateLetter").post(updateLetter);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

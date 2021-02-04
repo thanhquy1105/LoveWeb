@@ -53,7 +53,7 @@ class Question extends React.Component {
             }}
           />
           <div className="question" style={{ width: "100%" }}>
-            Will you be my girlfriend?
+            I love you. Do you love me?
           </div>
         </div>
         <div style={{ width: "100%", height: "100%", position: "absolute" }}>

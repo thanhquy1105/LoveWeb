@@ -41,10 +41,121 @@
   border: 1px solid #998466;
 }
 .demoPage {
-  padding: 10px;
+  padding: 5px 0px 10px 10px;
   background-color: #f5eee7;
   color: #785e3a;
   border: 1px solid #c2b5a3;
-  overflow: hidden;
   box-shadow: inset 7px 0 30px -7px rgb(0 0 0 / 40%);
+  height: 100%;
+}
+.TopLetter {
+  height: 40px;
+  background-color: #00000030;
+  border-radius: 25px 25px 0 0;
+  position: relative;
+  justify-content: center;
+}
+.BottomLetter {
+  height: 40px;
+  background-color: #00000030;
+  border-radius: 0 0 25px 25px;
+}
+.AllLetter {
+  position: relative;
+}
+.page-text {
+  height: 350px;
+  margin-right: 10px;
+  text-align: justify;
+}
+.page-footer {
+  border-top: 2px solid #d8c4a8;
+  margin-top: 10px;
+  text-align: right;
+  margin-right: 15px;
+  font-size: 0.75rem;
+}
+.page-date {
+  border-bottom: 2px solid #d8c4a8;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  font-size: 0.75rem;
+}
+.editLetter {
+  width: 315px;
+  height: 461.79px;
+  background-color: #f5eee7;
+  color: #785e3a;
+  box-shadow: inset 7px 0 30px -7px rgb(0 0 0 / 60%);
+  border: 2px solid #ac9d89;
+}
+.groudButton {
+  width: 38px;
+  height: 32px;
+  position: absolute !important;
+  right: 15px;
+  top: 4px;
+}
+.confirmGButton {
+  position: absolute !important;
+  top: 4px;
+  right: 110px;
+}
+.editTitle {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  width: 95%;
+  text-align: justify;
+  text-align-last: center;
+  color: black;
+}
+.editDate {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  width: 95%;
+  text-align: justify;
+  text-align-last: right;
+  color: black;
+}
+.editContent {
+  position: relative;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  width: 95%;
+  text-align: justify;
+  color: black;
+}
+.page-number {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+.page-flip {
+  position: absolute;
+  left: 28%;
+  top: 0;
+}
+.stf__parent {
+  z-index: 2;
+}
+.Quote {
+  background-color: #00000030;
+  border-radius: 25px 25px 25px 25px;
+  position: relative;
+  justify-content: center;
+  margin-top: 10px;
+  height: 100px;
+  width: 315px;
+  font-size: 1.25rem;
+  text-align: center;
+  display: flex;
+  padding: 5px;
 }

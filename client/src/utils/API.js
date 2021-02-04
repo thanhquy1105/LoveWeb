@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// const URL = "http://localhost:5000";
-// const URL = "https://quyyeungoc.herokuapp.com"
-
 export default {
   async getShowDays() {
     return await axios.get("/api/getShowDays");
@@ -19,11 +16,17 @@ export default {
   async getImage(value) {
     return await axios.get("/api/getImage", value);
   },
+  async getLetter() {
+    return await axios.get("/api/getLetter");
+  },
   async insertImage(value) {
     return await axios.post("/api/insertImage", value);
   },
   async updateImage(id, value) {
     return await axios.put(`/api/updateImage/${id}`, value);
+  },
+  async updateLetter(change) {
+    return await axios.post(`/api/updateLetter`, change);
   },
   async postShowDays(change) {
     return await axios.post(`/api/updateShowDays`, change);

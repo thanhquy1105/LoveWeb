@@ -1,80 +1,181 @@
 import React from "react";
-import bgStart from "../image/memories/memory12.jpg";
-import bgEnd from "../image/memories/memory4.jpg";
-import bgMiddle from "../image/memories/memory16.jpg";
-
 import TextareaAutosize from "react-textarea-autosize";
 import "./LetterAndQuote.css";
-import HTMLFlipBook from "react-pageflip";
-
-const PageCover = React.forwardRef((props, ref) => {
-  return (
-    <div className="page page-cover" ref={ref} data-density="hard">
-      <div className="page-content">
-        <img
-          src={props.bg}
-          style={{
-            position: "absolute",
-            objectFit: "cover",
-            width: "100%",
-            height: "100%",
-            boxShadow:
-              "inset 0 0 30px 0 rgb(36 10 3 / 50%), -2px 0 5px 2px rgb(0 0 0 / 40%)",
-            border: "1px solid #998466",
-          }}
-        ></img>
-        <h2 style={{ zIndex: 0, marginTop: "40px" }}>{props.children}</h2>
-      </div>
-    </div>
-  );
-});
-
-const Page = React.forwardRef((props, ref) => {
-  return (
-    <div className="demoPage" ref={ref}>
-      <h1>Page Header</h1>
-      <p>{props.children}</p>
-      <p>Page number: {props.number}</p>
-    </div>
-  );
-});
+import API from "../utils/API";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import "react-custom-scroll/dist/customScroll.css";
+import Book from "./Book";
+import Carousel from "react-bootstrap/Carousel";
 
 class LetterAndQuote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      date: "",
+      content: "",
+      onAdd: false,
+      totalPage: 0,
+      BackgroundUrl: "",
+      Quote: [],
+    };
+  }
+
+  componentDidMount() {
+    API.getLetter().then((res) => {
+      let data = res.data.info[0];
+      this.setState({
+        BackgroundUrl: data.BackgroundUrl,
+        Quote: data.Quote,
+      });
+    });
+  }
+
+  onClickAddButton() {
+    this.setState({ onAdd: true });
+  }
+
+  onClickOk() {
+    //API
+    if (this.state.title && this.state.date && this.state.content) {
+      let temp = {
+        imageUrl: "",
+        title: this.state.title,
+        date: this.state.date,
+        content: this.state.content,
+      };
+
+      let data = {
+        TotalPage: this.state.totalPage + 1,
+        Letter: temp,
+      };
+
+      API.updateLetter(data).then(() => {
+        this.setState({
+          onAdd: false,
+          title: "",
+          date: "",
+          content: "",
+          totalPage: data.TotalPage,
+        });
+      });
+    }
+  }
+
+  onClickCancel() {
+    this.setState({
+      onAdd: false,
+    });
+  }
+
   render() {
+    const temp = this.state.Quote.map((item, i) => {
+      return <Carousel.Item key={i}>{item}</Carousel.Item>;
+    });
     return (
       <div className="cover-tag">
         <img
-          src={bgMiddle}
+          src={this.state.BackgroundUrl}
           style={{
             position: "absolute",
             filter: "blur(10px)",
           }}
         ></img>
-        <div className="cover-letter">
-          <HTMLFlipBook
-            width={500}
-            height={733}
-            size="stretch"
-            minWidth={315}
-            maxWidth={1000}
-            minHeight={400}
-            maxHeight={1533}
-            drawShadow={true}
-            maxShadowOpacity={1}
-          >
-            <PageCover bg={bgStart}>Love Letter Book</PageCover>
-            <Page number="1">Page text</Page>
-            <Page number="2">Page text</Page>
-            <Page number="3">Page text</Page>
-            <Page number="4">Page text</Page>
-            <PageCover bg={bgEnd}>
-              Em không thoát được đâu em iu. Tu bi con ti niu
-            </PageCover>
-          </HTMLFlipBook>
+        <div>
+          <div className="AllLetter">
+            <div className="TopLetter">
+              {this.state.onAdd ? (
+                <div className="page-number">
+                  {this.state.totalPage}/{this.state.totalPage + 1} pages
+                </div>
+              ) : null}
+            </div>
+
+            {this.state.onAdd === false ? (
+              <Book
+                data={(totalPage) =>
+                  this.setState({
+                    totalPage: totalPage,
+                  })
+                }
+                onClickAddButton={() => this.onClickAddButton()}
+              ></Book>
+            ) : null}
+            {this.state.onAdd === true ? (
+              <>
+                <ButtonGroup className="confirmGButton" size="sm">
+                  <Button
+                    onClick={() => this.onClickOk()}
+                    title="Ok"
+                    variant="success"
+                    style={{ width: "40px" }}
+                  >
+                    OK
+                  </Button>
+                  <Button
+                    onClick={() => this.onClickCancel()}
+                    title="Cancel"
+                    variant="warning"
+                  >
+                    Cancel
+                  </Button>
+                </ButtonGroup>
+                <div className="cover-letter">
+                  <div
+                    className="editLetter"
+                    style={{ width: "315px", height: "461.79px" }}
+                  >
+                    <TextareaAutosize
+                      minRows={1}
+                      maxRows={1}
+                      className="editTitle"
+                      value={this.state.title}
+                      onChange={(event) =>
+                        this.setState({ title: event.target.value })
+                      }
+                      placeholder="title"
+                    ></TextareaAutosize>
+                    <TextareaAutosize
+                      minRows={1}
+                      maxRows={1}
+                      className="editDate"
+                      value={this.state.date}
+                      onChange={(event) =>
+                        this.setState({ date: event.target.value })
+                      }
+                      placeholder="date"
+                    ></TextareaAutosize>
+                    <TextareaAutosize
+                      minRows={1}
+                      maxRows={15}
+                      className="editContent"
+                      value={this.state.content}
+                      onChange={(event) =>
+                        this.setState({ content: event.target.value })
+                      }
+                      placeholder="content"
+                    ></TextareaAutosize>
+                  </div>
+                </div>
+              </>
+            ) : null}
+          </div>
+          {this.state.Quote.length !== 0 ? (
+            <div className="Quote">
+              <Carousel
+                controls={false}
+                defaultActiveIndex={Math.floor(
+                  Math.random() * Math.floor(this.state.Quote.length)
+                )}
+                indicators={false}
+                interval={10000}
+              >
+                {temp}
+              </Carousel>
+            </div>
+          ) : null}
         </div>
-        {/* <div className="cover-letter">
-          <TextareaAutosize className="text-area" />
-        </div> */}
       </div>
     );
   }

@@ -46,7 +46,7 @@ const ModalAdd = (props) => {
   };
 
   const clickAddAdd = () => {
-    if (file && date && my && your) {
+    if (file) {
       saveFile();
       return true;
     } else {

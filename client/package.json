@@ -17,6 +17,7 @@
     "react-bootstrap": "^1.4.0",
     "react-card-flip": "^1.0.11",
     "react-color": "^2.19.3",
+    "react-custom-scroll": "^4.2.2",
     "react-dom": "^17.0.1",
     "react-image-gallery": "^1.0.8",
     "react-pageflip": "^1.0.0",

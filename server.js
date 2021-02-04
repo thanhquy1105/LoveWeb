@@ -4,6 +4,7 @@ const connectDatabase = require("./config/database");
 const { ImportShowDays } = require("./controllers/ShowDaysController");
 const { ImportShowFull } = require("./controllers/ShowFullController");
 const { ImportAvatar } = require("./controllers/AvatarController");
+const { ImportLetter } = require("./controllers/LetterController");
 
 const cors = require("cors");
 app.use(cors());
@@ -19,6 +20,7 @@ app.use(express.static("client/build"));
 ImportShowDays();
 ImportShowFull();
 ImportAvatar();
+ImportLetter();
 
 app.listen(PORT, () => {
   console.log(`Server st arted on PORT: ${PORT}.`);

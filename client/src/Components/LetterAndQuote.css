@@ -159,3 +159,12 @@
   display: flex;
   padding: 5px;
 }
+.Quote .carousel-indicators {
+  bottom: -30px;
+}
+.Quote .carousel-control-next {
+  right: -40px;
+}
+.Quote .carousel-control-prev {
+  left: -40px;
+}

@@ -164,11 +164,9 @@ class LetterAndQuote extends React.Component {
           {this.state.Quote.length !== 0 ? (
             <div className="Quote">
               <Carousel
-                controls={false}
                 defaultActiveIndex={Math.floor(
                   Math.random() * Math.floor(this.state.Quote.length)
                 )}
-                indicators={false}
                 interval={10000}
               >
                 {temp}

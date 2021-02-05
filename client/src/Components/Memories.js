@@ -65,7 +65,7 @@ const Memories = () => {
     setIndexEdit(activeIndex);
   };
   const clickSaveButton = () => {
-    if (dateInput && myInput && yourInput) {
+    if (dateInput || myInput || yourInput) {
       let data = {
         Date: dateInput,
         MyFeel: myInput,

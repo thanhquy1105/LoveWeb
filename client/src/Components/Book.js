@@ -41,7 +41,7 @@ const Page = React.forwardRef((props, ref) => {
           <div className="page-text">{letter.content}</div>
         </CustomScroll>
 
-        <p className="page-footer">{index}</p>
+        <p className="page-footer">{index + 2}</p>
       </div>
     );
   });

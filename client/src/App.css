@@ -50,7 +50,29 @@
   position: absolute;
   z-index: 2;
   top: 130px;
-  font-family: "Pinyon";
+  font-family: "Dancing";
+}
+.question1 {
+  color: #31458d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(15px + 5vmin);
+  position: absolute;
+  z-index: 2;
+  top: 190px;
+  font-family: "Dancing";
+}
+.question2 {
+  color: #31458d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(15px + 5vmin);
+  position: absolute;
+  z-index: 2;
+  top: 240px;
+  font-family: "Dancing";
 }
 
 .Center {

@@ -52,8 +52,16 @@ class Question extends React.Component {
               zIndex: 1,
             }}
           />
-          <div className="question" style={{ width: "100%" }}>
-            I love you. Do you love me?
+          <div>
+            <div className="question" style={{ width: "100%" }}>
+              I love you. Do you love me?
+            </div>
+            <div className="question1" style={{ width: "100%" }}>
+              You choose YES. So why haven't you come back yet?
+            </div>
+            <div className="question2" style={{ width: "100%" }}>
+              I miss you so much.
+            </div>
           </div>
         </div>
         <div style={{ width: "100%", height: "100%", position: "absolute" }}>

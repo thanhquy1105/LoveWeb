@@ -5,10 +5,11 @@ import Question from "./Components/Question";
 import Love from "./Components/Love";
 import ParticlesBg from "particles-bg";
 import icon from "./Components/icon";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
 import "antd/dist/antd.css";
 import Memories from "./Components/Memories";
 import LetterAndQuote from "./Components/LetterAndQuote";
+import Music from "./music/Perfect.mp3";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
     this.state = {
       page: 0,
       heightBG: "100%",
+      OK: 0,
     };
   }
 
@@ -36,6 +38,14 @@ class App extends React.Component {
 
   OnChangeState() {
     this.setState({ page: 1 });
+  }
+
+  OnOK() {
+    var audio = new Audio(Music);
+    audio.play();
+    audio.volume = 0.3;
+    audio.loop = true;
+    this.setState({ OK: 1 });
   }
 
   render() {
@@ -76,6 +86,49 @@ class App extends React.Component {
             >
               <ParticlesBg type="custom" config={config} bg={false} />
             </div>
+            {this.state.OK === 0 ? (
+              <div
+                style={{
+                  position: "absolute",
+                  height: "100%",
+                  width: "100%",
+                  background: "#ffffff99",
+                  zIndex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                  fontFamily: "Dancing",
+                  fontSize: "calc(15px + 5vmin)",
+                }}
+              >
+                <div>
+                  <div style={{ display: "flex" }}>
+                    Anh nhớ em rất nhiều. Quay về bên anh em nhé!
+                  </div>
+                  <Button
+                    style={{
+                      background: "rgb(51 213 86)",
+                      marginRight: "20px",
+                      fontSize: "calc(10px + 2vmin)",
+                      height: "45px",
+                    }}
+                    onClick={() => this.OnOK()}
+                  >
+                    Ùm. Em cũng nhớ anh nhiều
+                  </Button>
+                  <Button
+                    style={{
+                      background: "rgb(122 115 115)",
+                      marginLeft: "20px",
+                      fontSize: "calc(10px + 2vmin)",
+                      height: "45px",
+                    }}
+                  >
+                    Em đã bỏ anh rồi. Em vào đây làm gì. hic
+                  </Button>
+                </div>
+              </div>
+            ) : null}
             <Row style={{ height: "100%" }}>
               <Col
                 xs={24}

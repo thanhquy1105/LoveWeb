@@ -64,7 +64,14 @@ class Question extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{ width: "100%", height: "100%", position: "absolute" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "50px",
+          }}
+        >
           <Row style={{ height: "100%" }}>
             <Col span={6}></Col>
             <Col span={6} style={{ alignSelf: "center" }}>

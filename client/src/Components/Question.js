@@ -54,14 +54,17 @@ class Question extends React.Component {
           />
           <div>
             <div className="question" style={{ width: "100%" }}>
-              I love you. Do you love me?
+              Hạnh phúc đi chứ vào đây làm gì đồ tồi
             </div>
-            <div className="question1" style={{ width: "100%" }}>
+            {/* <div className="question" style={{ width: "100%" }}>
+              I love you. Do you love me?
+            </div> */}
+            {/* <div className="question1" style={{ width: "100%" }}>
               You choose YES. So why haven't you come back yet?
             </div>
             <div className="question2" style={{ width: "100%" }}>
               I miss you so much.
-            </div>
+            </div> */}
           </div>
         </div>
         <div

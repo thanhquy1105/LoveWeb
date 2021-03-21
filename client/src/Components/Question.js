@@ -54,14 +54,14 @@ class Question extends React.Component {
           />
           <div>
             <div className="question" style={{ width: "100%" }}>
-              Hạnh phúc đi chứ vào đây làm gì đồ tồi
+              Anh nhớ em nhiều lắm em à
             </div>
             <div className="question1" style={{ width: "100%" }}>
-              Em ác với a rk Ngọc. Em nói thương anh mà nở lòng đối xử với anh
-              như rứa à?
+              Quay về bên a đi mà e. E có nhớ những ngày anh đèo e đi chơi khắp
+              Huế
             </div>
             <div className="question2" style={{ width: "100%" }}>
-              Đoạn 6/2 e gửi a đoạn tin nhắn nói hay lắm cơ mà. Lòng người...
+              Đôi mình tự vào nhau như chẳng gì ngăn cản được.
             </div>
             {/* <div className="question" style={{ width: "100%" }}>
               I love you. Do you love me?

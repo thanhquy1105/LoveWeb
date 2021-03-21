@@ -61,7 +61,7 @@ class Question extends React.Component {
               Huế
             </div>
             <div className="question2" style={{ width: "100%" }}>
-              Đôi mình tự vào nhau như chẳng gì ngăn cản được.
+              Đôi mình tựa vào nhau như chẳng gì chia cắt được.
             </div>
             {/* <div className="question" style={{ width: "100%" }}>
               I love you. Do you love me?

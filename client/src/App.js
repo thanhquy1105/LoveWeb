@@ -40,13 +40,13 @@ class App extends React.Component {
     this.setState({ page: 1 });
   }
 
-  OnOK() {
-    var audio = new Audio(Music);
-    audio.play();
-    audio.volume = 0.3;
-    audio.loop = true;
-    this.setState({ OK: 1 });
-  }
+  // OnOK() {
+  //   var audio = new Audio(Music);
+  //   audio.play();
+  //   audio.volume = 0.3;
+  //   audio.loop = true;
+  //   this.setState({ OK: 1 });
+  // }
 
   render() {
     let config = {
@@ -86,7 +86,7 @@ class App extends React.Component {
             >
               <ParticlesBg type="custom" config={config} bg={false} />
             </div>
-            {this.state.OK === 0 ? (
+            {/* {this.state.OK === 0 ? (
               <div
                 style={{
                   position: "absolute",
@@ -128,7 +128,7 @@ class App extends React.Component {
                   </Button>
                 </div>
               </div>
-            ) : null}
+            ) : null} */}
             <Row style={{ height: "100%" }}>
               <Col
                 xs={24}

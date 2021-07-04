@@ -31,7 +31,7 @@ class NoButton extends React.Component {
               marginRight: "8px",
             }}
           />
-          No
+          Thoát
         </button>
       </>
     );

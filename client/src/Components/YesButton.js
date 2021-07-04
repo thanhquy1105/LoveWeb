@@ -16,7 +16,7 @@ class YesButton extends React.Component {
           icon={<HeartFilled style={{ color: "#f14350" }} />}
           onClick={() => this.OnClickYes()}
         >
-          Yes
+          Vào Trong
         </Button>
       </>
     );

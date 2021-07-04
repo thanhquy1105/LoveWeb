@@ -18,6 +18,10 @@ class Question extends React.Component {
   }
 
   CallbackFunction() {
+    var audio = new Audio(Music);
+    audio.play();
+    audio.volume = 0.3;
+    audio.loop = true;
     this.props.parentCallback();
   }
   toggleHoverNo() {
@@ -54,15 +58,14 @@ class Question extends React.Component {
           />
           <div>
             <div className="question" style={{ width: "100%" }}>
-              Anh nhớ em nhiều lắm em à
+              Mọi chuyện cũng đã cũ rồi!!
             </div>
             <div className="question1" style={{ width: "100%" }}>
-              Quay về bên a đi mà e. E có nhớ những ngày anh đèo e đi chơi khắp
-              Huế
+              Nhưng anh lại nhớ emm
             </div>
-            <div className="question2" style={{ width: "100%" }}>
+            {/* <div className="question2" style={{ width: "100%" }}>
               Đôi mình tựa vào nhau như chẳng gì chia cắt được.
-            </div>
+            </div> */}
             {/* <div className="question" style={{ width: "100%" }}>
               I love you. Do you love me?
             </div> */}
@@ -113,7 +116,7 @@ class Question extends React.Component {
                   marginRight: "8px",
                 }}
               />
-              No
+              Thoát
             </button>
           ) : (
             <></>

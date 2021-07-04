@@ -6,7 +6,7 @@ import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 import BrokenHeart from "../image/brokenHeart.png";
 import "./NoButton.css";
-import Music from "./music/La.mp3";
+import Music from "../music/La.mp3";
 
 var mystyle, x, y;
 class Question extends React.Component {

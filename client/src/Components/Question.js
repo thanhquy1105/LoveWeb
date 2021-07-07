@@ -6,7 +6,7 @@ import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 import BrokenHeart from "../image/brokenHeart.png";
 import "./NoButton.css";
-import Music from "../music/La.mp3";
+import Music from "../music/HappyForYou.flac";
 
 var mystyle, x, y;
 class Question extends React.Component {
@@ -19,10 +19,11 @@ class Question extends React.Component {
   }
 
   CallbackFunction() {
-    var audio = new Audio(Music);
-    audio.play();
+    var audio = AV.Player.fromURL(Music);
     audio.volume = 0.3;
     audio.loop = true;
+    audio.play();
+
     this.props.parentCallback();
   }
   toggleHoverNo() {
@@ -59,14 +60,14 @@ class Question extends React.Component {
           />
           <div>
             <div className="question" style={{ width: "100%" }}>
-              Mọi chuyện cũng đã cũ rồi!!
+              Dù chúng ta đã không còn gì!!
             </div>
             <div className="question1" style={{ width: "100%" }}>
-              Nhưng anh lại nhớ emm
+              Hồi ức xưa nay vẫn còn đây
             </div>
-            {/* <div className="question2" style={{ width: "100%" }}>
-              Đôi mình tựa vào nhau như chẳng gì chia cắt được.
-            </div> */}
+            <div className="question2" style={{ width: "100%" }}>
+              Em nơi nào
+            </div>
             {/* <div className="question" style={{ width: "100%" }}>
               I love you. Do you love me?
             </div> */}

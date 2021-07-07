@@ -6,7 +6,7 @@ import { Row, Col } from "antd";
 import "antd/dist/antd.css";
 import BrokenHeart from "../image/brokenHeart.png";
 import "./NoButton.css";
-import Music from "../music/HappyForYou.flac";
+import Music from "../music/HappyForYou1.mp3";
 
 var mystyle, x, y;
 class Question extends React.Component {
@@ -19,8 +19,8 @@ class Question extends React.Component {
   }
 
   CallbackFunction() {
-    var audio = window.AV.Player.fromURL(Music);
-    audio.volume = 10.0;
+    var audio = new Audio(Music);
+    audio.volume = 0.25;
     audio.loop = true;
     audio.play();
 

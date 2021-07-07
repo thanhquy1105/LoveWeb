@@ -19,8 +19,8 @@ class Question extends React.Component {
   }
 
   CallbackFunction() {
-    var audio = AV.Player.fromURL(Music);
-    audio.volume = 0.3;
+    var audio = window.AV.Player.fromURL(Music);
+    audio.volume = 10.0;
     audio.loop = true;
     audio.play();
 
